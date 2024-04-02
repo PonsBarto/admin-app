@@ -1,9 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/pages/Dashboard";
-import Login from "./components/pages/Login";
-import Resetpassword from "./components/pages/Resetpassword"
-import Forgotpassword from "./components/pages/Forgotpassword"
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Resetpassword from "./pages/Resetpassword"
+import Forgotpassword from "./pages/Forgotpassword"
 import MainLayout from "./components/MainLayout"
 function App() {
   return (

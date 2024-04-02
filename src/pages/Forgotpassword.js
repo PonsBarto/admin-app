@@ -1,5 +1,5 @@
 import React from "react";
-import CustomInput from "../CostumInput";
+import CustomInput from "../components/CostumInput";
 
 const Forgotpassword = () => {
   return (
