@@ -6,6 +6,8 @@ import Resetpassword from "./pages/Resetpassword"
 import Forgotpassword from "./pages/Forgotpassword"
 import MainLayout from "./components/MainLayout"
 import Enquiries from "./pages/Enquiries";
+import Orders from "./pages/Orders";
+import Customers from "./pages/Customers";
 function App() {
   return (
     <Router>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/admin" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="enquiries" element={<Enquiries />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="customers" element={<Customers />} />
         </Route>
       </Routes>
     </Router>
