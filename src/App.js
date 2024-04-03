@@ -2,20 +2,19 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import Resetpassword from "./pages/Resetpassword"
-import Forgotpassword from "./pages/Forgotpassword"
-import MainLayout from "./components/MainLayout"
-import Enquiries from "./pages/Enquiries";
+import Resetpassword from "./pages/Resetpassword";
+import Forgotpassword from "./pages/Forgotpassword";
+import MainLayout from "./components/MainLayout";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
-import Placelist from "./pages/Placelist";
-import Categorylist from "./pages/Categorylist";
 import Colorlist from "./pages/Colorlist";
+import Categorylist from "./pages/Categorylist";
+import Placelist from "./pages/Placelist";
 import Productlist from "./pages/Productlist";
+import Addcolor from "./pages/Addcolor";
+import Addcat from "./pages/Addcat";
 import Addplace from "./pages/Addplace";
-import Addcat from "./pages/Addcolor";
-import Addcolor from "./pages/Addcat";
-import Addproduct from "./pages/Addproduct";
+import ViewOrder from "./pages/ViewOrder";
 function App() {
   return (
     <Router>
@@ -25,20 +24,19 @@ function App() {
         <Route path="/forgot-password" element={<Forgotpassword />} />
         <Route path="/admin" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="enquiries" element={<Enquiries />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="order/:id" element={<ViewOrder />} />
           <Route path="customers" element={<Customers />} />
           <Route path="list-color" element={<Colorlist />} />
-          <Route path="list-category" element={<Categorylist />} />
-          <Route path="list-place" element={<Placelist />} />
-          <Route path="list-product" element={<Productlist />} />
           <Route path="color" element={<Addcolor />} />
           <Route path="color/:id" element={<Addcolor />} />
+          <Route path="list-category" element={<Categorylist />} />
           <Route path="category" element={<Addcat />} />
           <Route path="category/:id" element={<Addcat />} />
+          <Route path="list-place" element={<Placelist />} />
           <Route path="place" element={<Addplace />} />
-          <Route path="brand/:id" element={<Addplace />} />
-          <Route path="product" element={<Addproduct />} />
+          <Route path="place/:id" element={<Addplace />} />
+          <Route path="list-product" element={<Productlist />} />
         </Route>
       </Routes>
     </Router>

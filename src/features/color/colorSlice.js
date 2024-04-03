@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import colorService from "./colorService";
-
 export const getColors = createAsyncThunk(
   "color/get-colors",
   async (thunkAPI) => {

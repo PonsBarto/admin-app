@@ -1,65 +1,65 @@
 import { React, useEffect } from "react";
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../components/CostumInput";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import {
-  createColor,
-  getAColor,
+  createCategory,
+  getAProductCategory,
   resetState,
-  updateAColor,
-} from "../features/color/colorSlice";
+  updateAProductCategory,
+} from "../features/pcategory/pcategorySlice";
 let schema = yup.object().shape({
-  title: yup.string().required("Color is Required"),
+  title: yup.string().required("Category Name is Required"),
 });
-const Addcolor = () => {
+const Addcat = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
-  const getColorId = location.pathname.split("/")[3];
-  const newColor = useSelector((state) => state.color);
+  const getPCatId = location.pathname.split("/")[3];
+  const navigate = useNavigate();
+  const newCategory = useSelector((state) => state.pCategory);
   const {
     isSuccess,
     isError,
     isLoading,
-    createdColor,
-    updatedColor,
-    colorName,
-  } = newColor;
+    createdCategory,
+    categoryName,
+    updatedCategory,
+  } = newCategory;
   useEffect(() => {
-    if (getColorId !== undefined) {
-      dispatch(getAColor(getColorId));
+    if (getPCatId !== undefined) {
+      dispatch(getAProductCategory(getPCatId));
     } else {
       dispatch(resetState());
     }
-  }, [getColorId]);
+  }, [getPCatId]);
   useEffect(() => {
-    if (isSuccess && createdColor) {
-      toast.success("Color Added Successfullly!");
+    if (isSuccess && createdCategory) {
+      toast.success("Category Added Successfullly!");
     }
-    if (isSuccess && updatedColor) {
-      toast.success("Color Updated Successfullly!");
-      navigate("/admin/list-color");
+    if (isSuccess && updatedCategory) {
+      toast.success("Category Updated Successfullly!");
+      navigate("/admin/list-category");
     }
     if (isError) {
       toast.error("Something Went Wrong!");
     }
-  }, [isSuccess, isError, isLoading, createdColor]);
+  }, [isSuccess, isError, isLoading]);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      title: colorName || "",
+      title: categoryName || "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      if (getColorId !== undefined) {
-        const data = { id: getColorId, colorData: values };
-        dispatch(updateAColor(data));
+      if (getPCatId !== undefined) {
+        const data = { id: getPCatId, pCatData: values };
+        dispatch(updateAProductCategory(data));
         dispatch(resetState());
       } else {
-        dispatch(createColor(values));
+        dispatch(createCategory(values));
         formik.resetForm();
         setTimeout(() => {
           dispatch(resetState());
@@ -69,18 +69,18 @@ const Addcolor = () => {
   });
   return (
     <div>
-      <h3 className="mb-4 title">
-        {getColorId !== undefined ? "Edit" : "Add"} Color
+      <h3 className="mb-4  title">
+        {getPCatId !== undefined ? "Edit" : "Add"} Category
       </h3>
       <div>
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
-            type="color"
-            label="Enter Product Color"
+            type="text"
+            label="Enter Product Category"
             onChng={formik.handleChange("title")}
             onBlr={formik.handleBlur("title")}
             val={formik.values.title}
-            id="color"
+            id="brand"
           />
           <div className="error">
             {formik.touched.title && formik.errors.title}
@@ -89,7 +89,7 @@ const Addcolor = () => {
             className="btn btn-success border-0 rounded-3 my-5"
             type="submit"
           >
-            {getColorId !== undefined ? "Edit" : "Add"} Color
+            {getPCatId !== undefined ? "Edit" : "Add"} Category
           </button>
         </form>
       </div>
@@ -97,4 +97,4 @@ const Addcolor = () => {
   );
 };
 
-export default Addcolor;
+export default Addcat;

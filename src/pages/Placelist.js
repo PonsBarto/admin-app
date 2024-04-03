@@ -5,11 +5,11 @@ import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteAplace,
+  deleteAPlace,
   getPlaces,
   resetState,
-} from "../features/place/placeSlice";
-import CustomModal from "../components/CustomModal";
+} from "../features/place/placeSilce";
+import CustomModal from "../components/CutomModal";
 
 const columns = [
   {
@@ -41,7 +41,7 @@ const Placelist = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(resetState());
-    dispatch(getplaces());
+    dispatch(getPlaces());
   }, []);
   const placeState = useSelector((state) => state.place.places);
   const data1 = [];
@@ -67,8 +67,8 @@ const Placelist = () => {
       ),
     });
   }
-  const deletePlace = (e) => {
-    dispatch(deleteAplace(e));
+  const deleteAPlace = (e) => {
+    dispatch(deleteAPlace(e));
 
     setOpen(false);
     setTimeout(() => {
@@ -85,7 +85,7 @@ const Placelist = () => {
         hideModal={hideModal}
         open={open}
         performAction={() => {
-          deletePlace(placeId);
+          deleteAPlace(placeId);
         }}
         title="Are you sure you want to delete this place?"
       />

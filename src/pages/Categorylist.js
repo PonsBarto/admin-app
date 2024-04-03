@@ -9,7 +9,7 @@ import {
   getCategories,
   resetState,
 } from "../features/pcategory/pcategorySlice";
-import CustomModal from "../components/CustomModal";
+import CustomModal from "../components/CutomModal";
 
 const columns = [
   {

@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../components/CostumInput";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import {
   getAPlace,
   resetState,
   updateAPlace,
-} from "../features/place/placeSlice";
+} from "../features/place/placeSilce";
 
 let schema = yup.object().shape({
   title: yup.string().required("Place Name is Required"),
@@ -41,7 +41,7 @@ const Addplace = () => {
     if (isSuccess && createdPlace) {
       toast.success("Place Added Successfullly!");
     }
-    if (isSuccess && updatedPace) {
+    if (isSuccess && updatedPlace) {
       toast.success("Pace Updated Successfullly!");
       navigate("/admin/list-place");
     }
