@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { FaClipboardList } from "react-icons/fa";
-import { SiBrandfolder } from "react-icons/si";
 import { BiCategoryAlt } from "react-icons/bi";
 import { Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +37,7 @@ const MainLayout = () => {
           mode="inline"
           defaultSelectedKeys={[""]}
           onClick={({ key }) => {
-            if (key == "signout") {
+            if (key === "signout") {
             } else {
               navigate(key);
             }
@@ -47,7 +46,7 @@ const MainLayout = () => {
             {
               key: "",
               icon: <AiOutlineDashboard className="fs-4" />,
-              label: "Panel",
+              label: "Dashboard",
             },
             {
               key: "customers",
