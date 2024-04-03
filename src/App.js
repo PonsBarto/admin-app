@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Resetpassword from "./pages/Resetpassword"
 import Forgotpassword from "./pages/Forgotpassword"
 import MainLayout from "./components/MainLayout"
-import Enquiries from "./pages/Emquiries";
+import Enquiries from "./pages/Enquiries";
 function App() {
   return (
     <Router>
