@@ -8,6 +8,9 @@ import MainLayout from "./components/MainLayout"
 import Enquiries from "./pages/Enquiries";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
+import Placelist from "./pages/Placelist";
+import Categorylist from "./pages/Categorylist";
+import Colorlist from "./pages/Colorlist";
 function App() {
   return (
     <Router>
@@ -20,6 +23,9 @@ function App() {
           <Route path="enquiries" element={<Enquiries />} />
           <Route path="orders" element={<Orders />} />
           <Route path="customers" element={<Customers />} />
+          <Route path="list-color" element={<Colorlist />} />
+          <Route path="list-category" element={<Categorylist />} />
+          <Route path="list-place" element={<Placelist />} />
         </Route>
       </Routes>
     </Router>
