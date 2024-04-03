@@ -11,6 +11,11 @@ import Customers from "./pages/Customers";
 import Placelist from "./pages/Placelist";
 import Categorylist from "./pages/Categorylist";
 import Colorlist from "./pages/Colorlist";
+import Productlist from "./pages/Productlist";
+import Addplace from "./pages/Addplace";
+import Addcat from "./pages/Addcolor";
+import Addcolor from "./pages/Addcat";
+import Addproduct from "./pages/Addproduct";
 function App() {
   return (
     <Router>
@@ -26,6 +31,14 @@ function App() {
           <Route path="list-color" element={<Colorlist />} />
           <Route path="list-category" element={<Categorylist />} />
           <Route path="list-place" element={<Placelist />} />
+          <Route path="list-product" element={<Productlist />} />
+          <Route path="color" element={<Addcolor />} />
+          <Route path="color/:id" element={<Addcolor />} />
+          <Route path="category" element={<Addcat />} />
+          <Route path="category/:id" element={<Addcat />} />
+          <Route path="place" element={<Addplace />} />
+          <Route path="brand/:id" element={<Addplace />} />
+          <Route path="product" element={<Addproduct />} />
         </Route>
       </Routes>
     </Router>
